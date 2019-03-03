@@ -4,15 +4,16 @@ parse file
     ignore padding and comments and env variables
     tab/space delimited
     expand ranges, steps, lists to lists (slices)
+        later, expand other aliases to lists
     return data structure (slice of slices?)
 
 check time (just use stdlib, don't write)
 
 compare times
     accept time, parse storage variable
-    
+
     returns next time each job will run (slice of slices?)
 
 cli-based program:
-    accepts file path, maybe optional time/date later, initially current time/date
-    returns next time each job will run
+    accepts file path and/or stdin, maybe optional time/date later, initially current time/date
+    returns next time each job will run to stdout
