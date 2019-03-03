@@ -1,0 +1,38 @@
+blank lines and leading spaces and tabs ignored
+lines whose first non-space character  is # are ignored
+active lines can be environment settings or cron commands
+top to bottom parsing
+environment lines are name = value
+5 time & date fields, command, newline \n
+system crontabs also added after time/date fields and before command
+space or tab separation
+
+executed when min, hr, month match current time, and at least 1 of 2 day fields (dayofmonth, dayofweek) match current time
+checked once per minute
+
+fields:
+              field          allowed values
+              -----          --------------
+              minute         0-59
+              hour           0-23
+              day of month   1-31
+              month          1-12 (or names, see below)
+              day of week    0-7 (0 or 7 is Sun, or use names)
+* = first-last
+ranges allowed, 2 numbers separated by hyphen, inclusive
+lists allowed, set of numbers or ranges separated by commas (1,2,5,9 or 0-4,8-12)
+step values can be used with ranges - follow range with /number skips the numbers value 0-23/2 is every other hour
+also step values with *, */2 is every other hour
+if both day fields specified (not *), it's or. 30 4 1,15 * 5 causes command to be run 4:30am on 1st and 15th + every friday
+
+instead of first 5 fields, one of 8 special strings may appear:
+              string         meaning
+              ------         -------
+              @reboot        Run once, at startup.
+              @yearly        Run once a year, "0 0 1 1 *".
+              @annually      (same as @yearly)
+              @monthly       Run once a month, "0 0 1 * *".
+              @weekly        Run once a week, "0 0 * * 0".
+              @daily         Run once a day, "0 0 * * *".
+              @midnight      (same as @daily)
+              @hourly        Run once an hour, "0 * * * *".
