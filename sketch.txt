@@ -3,7 +3,9 @@ parse file
     accept file path, read in
     ignore padding and comments and env variables
     tab/space delimited
-    expand ranges, steps, lists to lists (slices)
+    expand ranges, steps, lists to ??lists (slices)
+        either expand to megalist of options to check in
+        or store initial syntax to parse
         later, expand other aliases to lists
     return data structure (slice of slices?)
 
@@ -11,7 +13,9 @@ check time (just use stdlib, don't write)
 
 compare times
     accept time, parse storage variable
-
+    given a command (line) with list of raw codes
+        easy: expand into giant list of all instances, then take current date/time and see if it's in list
+        more elegant: 
     returns next time each job will run (slice of slices?)
 
 cli-based program:
